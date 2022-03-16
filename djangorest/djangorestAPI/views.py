@@ -10,6 +10,9 @@ from django.http import HttpResponse,JsonResponse
 import io
 from rest_framework.parsers import JSONParser
 from django.views.decorators.csrf import csrf_exempt
+# from rest_framework_simplejwt.authentication import JWTAuthentication
+# from rest_framework import viewsets
+# from rest_framework.permissions import IsAuthenticated
 
 def StudentDetail(request,pk):
     stu=Student.objects.get(id = pk)
@@ -68,3 +71,11 @@ def StudentCreate(request):
 
 
         return JsonResponse(ser.errors)
+
+
+# class StudentModelViewSet(viewsets.ModelViewSet):
+#     queeyset=Student.objects.all()
+#     serializer_class=StudentSerializer
+#     authentication_Class=[JWTAuthentication]
+#     permission_class=[IsAuthenticated]
+
