@@ -58,6 +58,7 @@ def StudentCreate(request):
             ser.save()
             resp={'msg': 'User Updated'}
             return JsonResponse(resp)
+    
 
     if request.method =='DELETE':
         json_data=request.body
@@ -69,8 +70,7 @@ def StudentCreate(request):
         resp={'msg': 'User Deleted'}
         return JsonResponse(resp)
 
-
-        return JsonResponse(ser.errors)
+    return JsonResponse(ser.errors)
 
 
 # class StudentModelViewSet(viewsets.ModelViewSet):
