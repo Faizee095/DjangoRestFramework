@@ -35,5 +35,6 @@ urlpatterns = [
     # path('stuapi/<int:pk>/',views.StudentListRUD.as_view(),name='api' ),
     #ViewSet Class
     path('',include(router.urls)),
+    path('auth/',include('rest_framework.urls', namespace='rest_framework')),
 
 ]

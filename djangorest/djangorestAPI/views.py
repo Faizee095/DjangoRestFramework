@@ -1,3 +1,4 @@
+from re import A
 from django.shortcuts import render
 from django.urls import is_valid_path
 from .models import Student,Hobby
@@ -383,9 +384,36 @@ from django.views.decorators.csrf import csrf_exempt
 #         return Response(ser.errors)
 
 #Model View Set and Ready Only Model View Set
-from rest_framework import viewsets
+# from rest_framework import viewsets
 
 
-class StudentModelViewset(viewsets.ModelViewSet):
-    queryset=Student.objects.all()
-    serializer_class=StudentSerializer
+# class StudentModelViewset(viewsets.ModelViewSet):
+#     queryset=Student.objects.all()
+#     serializer_class=StudentSerializer
+
+
+#Basic Authentication
+# from rest_framework import viewsets
+# from rest_framework.authentication  import BasicAuthentication
+# from rest_framework.permissions import IsAuthenticated,AllowAny,IsAdminUser
+
+
+# class StudentModelViewset(viewsets.ModelViewSet):
+#     queryset=Student.objects.all()
+#     serializer_class=StudentSerializer
+    # authentication_classes=[BasicAuthentication]
+    # permissions_classes=[IsAuthenticated]
+
+
+#Session Authentication
+# from rest_framework import viewsets
+# from rest_framework.authentication  import SessionAuthentication
+# from rest_framework.permissions import IsAuthenticated,IsAuthenticatedOrReadOnly,DjangoModelPermissions,DjangoModelPermissionsOrAnonReadOnly
+
+
+# class StudentModelViewset(viewsets.ModelViewSet):
+#     queryset=Student.objects.all()
+#     serializer_class=StudentSerializer
+#     authentication_classes=[SessionAuthentication]
+#     # permissions_classes=[IsAuthenticatedOrReadOnly]
+#     permissions_classes=[DjangoModelPermissions]
