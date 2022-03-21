@@ -3,6 +3,7 @@ from django.urls import path,include
 # from .views import StudentModelViewSet
 from djangorestAPI import views
 from rest_framework.routers import DefaultRouter
+from rest_framework.authtoken.views import obtain_auth_token
 
 #Setting up router for viewset
 router=DefaultRouter()
@@ -35,6 +36,8 @@ urlpatterns = [
     # path('stuapi/<int:pk>/',views.StudentListRUD.as_view(),name='api' ),
     #ViewSet Class
     path('',include(router.urls)),
-    path('auth/',include('rest_framework.urls', namespace='rest_framework')),
-
+    #Session Authentication
+    # path('auth/',include('rest_framework.urls', namespace='rest_framework')),
+    #Token Authentication
+    path('gettoken/',obtain_auth_token),
 ]
