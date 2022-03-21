@@ -1,6 +1,5 @@
 from django.db import models
 
-
     
 class Hobby(models.Model):
     #student= models.OneToOneField(Student, on_delete=models.CASCADE,primary_key=True)
