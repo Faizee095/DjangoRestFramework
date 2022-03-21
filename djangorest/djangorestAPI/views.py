@@ -420,14 +420,26 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 #Token Based Autentication
-from rest_framework import viewsets
-from rest_framework.authentication  import TokenAuthentication
-from rest_framework.permissions import IsAuthenticated,IsAuthenticatedOrReadOnly,DjangoModelPermissions,DjangoModelPermissionsOrAnonReadOnly
+# from rest_framework import viewsets
+# from rest_framework.authentication  import TokenAuthentication
+# from rest_framework.permissions import IsAuthenticated,IsAuthenticatedOrReadOnly,DjangoModelPermissions,DjangoModelPermissionsOrAnonReadOnly
 
+
+# class StudentModelViewset(viewsets.ModelViewSet):
+#     queryset=Student.objects.all()
+#     serializer_class=StudentSerializer
+#     authentication_classes=[TokenAuthentication]
+#     permissions_classes=[IsAuthenticated]
+    # permissions_classes=[DjangoModelPermissions]
+
+
+#JWT Authentication
+from rest_framework import viewsets
+from  rest_framework_simplejwt.authentication import JWTAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 class StudentModelViewset(viewsets.ModelViewSet):
     queryset=Student.objects.all()
     serializer_class=StudentSerializer
-    authentication_classes=[TokenAuthentication]
+    authentication_classes=[JWTAuthentication]
     permissions_classes=[IsAuthenticated]
-    # permissions_classes=[DjangoModelPermissions]

@@ -4,6 +4,7 @@ from django.urls import path,include
 from djangorestAPI import views
 from rest_framework.routers import DefaultRouter
 from rest_framework.authtoken.views import obtain_auth_token
+from rest_framework_simplejwt.views import TokenObtainPairView,TokenRefreshView
 
 #Setting up router for viewset
 router=DefaultRouter()
@@ -39,5 +40,8 @@ urlpatterns = [
     #Session Authentication
     # path('auth/',include('rest_framework.urls', namespace='rest_framework')),
     #Token Authentication
-    path('gettoken/',obtain_auth_token),
+    # path('gettoken/',obtain_auth_token),
+    #JWT 
+    path('gettoken/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('refreshtoken/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
